@@ -47,3 +47,7 @@ sam deploy
 ```bash
 sam delete --stack-name fiap-feedback-admin
 ```
+
+---
+**Desenvolvido para o Tech Challenge da FIAP - Fase de Cloud Computing & Serverless.**
+
