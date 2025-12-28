@@ -54,6 +54,11 @@ public class AdminManagementFunction implements RequestHandler<APIGatewayProxyRe
                 return responseHandler.badRequest(validationErrors);
             }
 
+            if (adminService.existsByEmail(adminRequest.email())) {
+                LOGGER.warn("Admin with email {} already exists", adminRequest.email());
+                return responseHandler.badRequest(Map.of("error", "Email already registered"));
+            }
+
             Admin newAdmin = Admin.fromRequest(adminRequest);
             adminService.saveAdmin(newAdmin);
             

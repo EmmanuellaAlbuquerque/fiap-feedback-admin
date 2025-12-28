@@ -1,0 +1,10 @@
+### Create Admin Subscription
+@host= {URL_DA_API_GATEWAY_AWS}/Prod
+
+POST {{host}}/admins/subscription
+Content-Type: application/json
+
+{
+  "name": "Nome do ADMIN 2 ",
+  "email": "emaildoadmin2@email.com"
+}

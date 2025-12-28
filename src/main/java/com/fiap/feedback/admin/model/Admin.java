@@ -33,6 +33,14 @@ public class Admin {
     }
 
     @DynamoDbPartitionKey
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getId() {
         return id;
     }
@@ -47,14 +55,6 @@ public class Admin {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public LocalDateTime getCreatedAt() {
