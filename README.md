@@ -48,6 +48,29 @@ sam deploy
 sam delete --stack-name fiap-feedback-admin
 ```
 
+## 🧪 Como Testar
+
+### Usando IntelliJ HTTP Client
+
+O projeto inclui um arquivo `api_requests.http` na raiz. Você pode usá-lo diretamente no IntelliJ IDEA:
+
+1. Abra o arquivo `api_requests.http`.
+2. Clique no ícone de "Play" (seta verde) ao lado da requisição `POST`.
+3. Verifique a resposta no console do IDE.
+
+### Usando cURL
+
+Você também pode testar via terminal:
+
+```bash
+curl -X POST {URL_DA_API_GATEWAY_AWS}/Prod/admins/subscription \
+-H "Content-Type: application/json" \
+-d '{
+    "name": "Nome do ADMIN",
+    "email": "emaildoadmin@email.com"
+}'
+```
+
 ---
 **Desenvolvido para o Tech Challenge da FIAP - Fase de Cloud Computing & Serverless.**
 

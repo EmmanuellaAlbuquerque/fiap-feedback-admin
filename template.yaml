@@ -13,12 +13,21 @@ Globals:
 Resources:
 
   ## =========================
+  ## API Gateway
+  ## =========================
+  AdminApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      Name: ms4-admin-api
+      StageName: Prod
+
+  ## =========================
   ## Lambda - Admin Management
   ## =========================
   AdminManagementFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: ms4-admin-management
+      FunctionName: ms4-admin-management-handler
       Runtime: java17
       Handler: io.quarkus.amazon.lambda.runtime.QuarkusStreamHandler
       CodeUri: target/function.zip
@@ -37,5 +46,6 @@ Resources:
         CreateAdmin:
           Type: Api
           Properties:
+            RestApiId: !Ref AdminApi
             Path: /admins/subscription
             Method: post
